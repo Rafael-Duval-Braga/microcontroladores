@@ -16,6 +16,10 @@
 ## Trabalhos:
 
 ### T1
-- Enunciado: 
+- Enunciado: Implementar na prática (SIMULIDE), um teclado matricial, e mostrar o número lido,multiplicado pelo (ultimo numero da sua matricula +1), em 2 displays de 7 segmentos.
+- Ex. matricula = 2021235687 => final 7...   Multiplicar numero do teclado x 8.
 ### T2
--Enunciado
+- Enunciado: Considere que um microcontrolador deve ler 3 valores de temperatura, ligados nos conversores ADC0, ADC1 e ADC2. Os valores lidos vao de XºC (lido como valor 0 no adc) até (YºC, lido como 1023 no adc). Faça um programa que fique lendo, repetidamente o valor dos 3 conversores e mostre a média dos valores lidos como um número em 3 displays de 7 segmentos.
+- pX = último digito da sua matricula +1
+- Y = penultimo digito da sua matricula +130.
+- Ex. Matrícula = 2021034589.    X= 9+1 = 10      Y = 8+130 = 138.... o adc mede valores entre 10 e 138 ºC.
