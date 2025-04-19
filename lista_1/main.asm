@@ -1,7 +1,7 @@
 
 
-;Faça um programa que configure a PORTB como entrada, e leia o valor de PORTB.
-;Faça esse valor + 15 e mostre em PORTD.
+;FaÃ§a um programa que configure a PORTB como entrada, e leia o valor de PORTB.
+;FaÃ§a esse valor + 15 e mostre em PORTD.
 
 ; Replace with your application code
 start:
@@ -23,6 +23,6 @@ loop:
 
 	add r16, r17	//r16 <- r16 + 15
 
-	sts PORTD, r16	//PORTD <- PORT A + 15
+	sts PORTD, r16	//PORTD <- PORT B + 15
 
 
