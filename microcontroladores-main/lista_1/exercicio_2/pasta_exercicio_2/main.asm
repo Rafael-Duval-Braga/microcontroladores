@@ -1,24 +1,20 @@
-//Faça um programa que configure a PORTB como entrada,
-//e leia o valor de PORTB. Faça esse valor x 5 e mostre em PORTD.
-
-
+// FaÃ§a um programa que configure a PORTB como entrada, e leia o valor de PORTB. FaÃ§a esse valor x 5 e mostre em PORTD.
 
 start:
-    
+    ldi	r16, 0 ; zera o reg
 
-	ldi	r16, 0			//zera o reg 16
-	sts	DDRB, r16		//configura port b como entrada
+	sts	DDRB, r16 ; DDRB <- 0000 0000
 
-	ldi	r16, 1			//reg 16 recebe 1
-	sts	DDRD, r16		//configura port d como saída
-
+	; PORTD Ã© output DDRD = 1111 1111
+	ser r16			; r16 <- 1111 1111
+	sts	DDRD, r16		//configura port d como saÃ­da
+	out PORTB, r16
+		
 loop:
+	lds r16, PINB	; PINB saos os pinos de entrada de PORTB
+	ldi r17, 5		; r17 <- 5
 
-	lds r16, PINB		//reg 16 recebe o valor de entrada
-	ldi r17, 5			//reg 17 recebe o valor de multiplicacao
+	mul r16, r17	; r1:r0 <- r16 * r17
 
-	mul r16, r17		//reg 0 <- reg 16 * 5
-
-	sts PORTD, r0		//port d <- reg 16 * 5
-
-	jmp loop			//reinicia o loop
+	sts PORTD, r0	; PORTD sao os pinos pra saida | r0 eh a saida padrao das multiplicacoes
+	jmp loop
