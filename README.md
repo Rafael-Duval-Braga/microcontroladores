@@ -7,7 +7,7 @@
 - Github com respostas das listas <https://github.com/Treorai/UFSM/tree/main/2025_A%2FUFSM00056%20-%20Microcontroladores%2FExercicios>
 
 ## fazer listas:
-- [ ] Lista 1
+- [x] Lista 1
 - [ ] Lista 2
 - [ ] Lista 3 (desvios condicionais)
 - [ ] Lista 4
