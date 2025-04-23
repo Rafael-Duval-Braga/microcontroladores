@@ -10,7 +10,7 @@
 ## fazer listas:
 - [x] Lista 1
 - [x] Lista 2
-- [ ] Lista 3 (desvios condicionais)
+- [x] Lista 3 (desvios condicionais)
 - [ ] Lista 4
 - [ ] Exercicio de ADC (A partir daqui vou ter conhecimento suficiente pra fazer trabalho 1 e 2)
 
