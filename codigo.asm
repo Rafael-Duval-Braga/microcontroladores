@@ -1,5 +1,5 @@
 ; Trabalho01.asm
-;
+; NOME: Rafael Duval Braga
 ; OBJETIVO:
 ; Implementar um teclado matricial.
 ; Multiplicar por 10 (matrícula terminada em 9 → 9+1=10)
