@@ -40,6 +40,19 @@ loop:
 	jmp coluna6
 	jmp loop
 
+
+;COLUNAS →   C1     C2     C3
+;           PC4    PC5    PC6
+;          ---------------------
+;LINHAS | ---------------------
+;      | R1 |  1  |  2  |  3  |  PC0
+;      | R2 |  4  |  5  |  6  |  PC1
+;      | R3 |  7  |  8  |  9  |  PC2
+;      | R4 |  *  |  0  |  #  |  PC3
+
+
+
+
 coluna4:
 	ldi r18, 0x01
 	jmp testelinha
