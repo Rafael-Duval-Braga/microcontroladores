@@ -1,6 +1,6 @@
 <circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="MCU" CircId="mega328-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-40,-96" rotation="0" hflip="1" vflip="1" label="mega328-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="../../Users/tavin/OneDrive/Área de Trabalho/lista_2/exercicio_2/exercicio_2/exercicio_2/Debug/exercicio_2.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+<item itemtype="MCU" CircId="mega328-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-40,-96" rotation="0" hflip="1" vflip="1" label="mega328-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Rst_enabled="false" Ext_Osc="false" Wdt_enabled="false" Clk_Out="false" MainMcu="true" SerialMon="-1" />
 
 <item itemtype="Seven Segment" CircId="Seven Segment-30" mainComp="false" Show_id="false" Show_Val="false" Pos="-252,60" rotation="0" hflip="1" vflip="1" label="Seven Segment-30" idLabPos="20,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" NumDisplays="1" Vertical_Pins="false" CommonCathode="true" Threshold="2.4 V" MaxCurrent="20 mA" Resistance="1 Ω" />
 
@@ -48,7 +48,7 @@
 
 <item itemtype="Tunnel" CircId="Tunnel-83" mainComp="false" Show_id="false" Show_Val="false" Pos="-292,100" rotation="0" hflip="1" vflip="1" label="Tunnel-83" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="portb" IsBus="true" />
 
-<item itemtype="Tunnel" CircId="Tunnel-84" mainComp="false" Show_id="false" Show_Val="false" Pos="-212,24" rotation="0" hflip="1" vflip="1" label="Tunnel-84" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="portb" IsBus="true" />
+<item itemtype="Tunnel" CircId="Tunnel-85" mainComp="false" Show_id="false" Show_Val="false" Pos="-212,20" rotation="0" hflip="1" vflip="1" label="Tunnel-85" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="portc" IsBus="true" />
 
 <item itemtype="Node" CircId="Node-57" mainComp="false" Pos="-144,-16" />
 
@@ -176,8 +176,8 @@
 
 <item itemtype="Connector" uid="Connector-259" startpinid="Bus-82-ePin8" endpinid="Seven Segment-31-pin_dot" pointList="-204,92,-180,92" />
 
-<item itemtype="Connector" uid="Connector-262" startpinid="Tunnel-84-pin" endpinid="Bus-82-busPinI" pointList="-212,24,-212,36" />
-
 <item itemtype="Connector" uid="Connector-263" startpinid="Tunnel-83-pin" endpinid="Bus-80-ePin0" pointList="-292,100,-292,92" />
+
+<item itemtype="Connector" uid="Connector-264" startpinid="Tunnel-85-pin" endpinid="Bus-82-busPinI" pointList="-212,20,-212,36" />
 
 </circuit>
