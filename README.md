@@ -17,6 +17,8 @@
 ## Trabalhos:
 
 ### T1
+- [x] terminar o codigo e testar no circuito
+- [ ] gravar o video
 - Enunciado: Implementar na prática (SIMULIDE), um teclado matricial, e mostrar o número lido,multiplicado pelo (ultimo numero da sua matricula +1), em 2 displays de 7 segmentos.
 - Ex. matricula = 2021235687 => final 7...   Multiplicar numero do teclado x 8.
 ### T2
