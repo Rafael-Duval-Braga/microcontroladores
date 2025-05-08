@@ -4,32 +4,31 @@
 ; Implementar um teclado matricial.
 ; Multiplicar por 10 (matrícula terminada em 9 → 9+1=10)
 ; Mostrar em 2 displays de 7 segmentos.
-;
 
 start:
 	ser r16
-	out DDRD, r16		; portD saída dezenas
-	out DDRB, r16		; portB saída unidades
+	out DDRD, r16		; portD saída (agora UNIDADES)
+	out DDRC, r16		; portC saída (agora DEZENAS)
 
 	ldi r16, 0b11110000
-	out PORTC, r16		; pull-up em PC4-PC7
+	out PORTB, r16		; pull-up em PB4-PB7 (colunas do teclado)
 
-	ldi r20, 0b1110000	; colunas high
-	ldi r21, 0b0001111	; linhas low
+	ldi r20, 0b11110000	; colunas high
+	ldi r21, 0b00001111	; linhas low
 
-	out DDRC, r21		; PC0-PC3 (linhas) como saída, PC4-PC6 (colunas) como entrada
-	out PORTC, r20		; ativa pull-up nas colunas
+	out DDRB, r21		; PB0-PB3 (linhas) como saída, PB4-PB7 (colunas) como entrada
+	out PORTB, r20		; ativa pull-up nas colunas
 
 loop:
-	out DDRC, r21
-	out PORTC, r20
+	out DDRB, r21
+	out PORTB, r20
 
-	in r16, PINC
+	in r16, PINB
 	com r16
 
-	out DDRC, r20
-	out PORTC, r21
-	in r17, PINC
+	out DDRB, r20
+	out PORTB, r21
+	in r17, PINB
 	com r17
 
 	sbrc r16, 4
@@ -39,19 +38,6 @@ loop:
 	sbrc r16, 6
 	jmp coluna6
 	jmp loop
-
-
-;COLUNAS →   C1     C2     C3
-;           PC4    PC5    PC6
-;          ---------------------
-;LINHAS | ---------------------
-;      | R1 |  1  |  2  |  3  |  PC0
-;      | R2 |  4  |  5  |  6  |  PC1
-;      | R3 |  7  |  8  |  9  |  PC2
-;      | R4 |  *  |  0  |  #  |  PC3
-
-
-
 
 coluna4:
 	ldi r18, 0x01
@@ -169,9 +155,9 @@ testedezena:
 	jmp testedezena
 
 skipdezena:
-; dezenas → PORTD (r25), unidades → PORTB (r24)
+; dezenas → PORTC (r25), unidades → PORTD (r24)
 
-testeportD:
+testeportC:
 	cpi r23, 0
 	breq display0d
 	cpi r23, 1
@@ -203,27 +189,27 @@ displaydot2:
 	jmp print
 
 display0d: ldi r25, 0b00111111
-	jmp testeportB
+	jmp testeportD
 display1d: ldi r25, 0b00000110
-	jmp testeportB
+	jmp testeportD
 display2d: ldi r25, 0b01011011
-	jmp testeportB
+	jmp testeportD
 display3d: ldi r25, 0b01001111
-	jmp testeportB
+	jmp testeportD
 display4d: ldi r25, 0b01100110
-	jmp testeportB
+	jmp testeportD
 display5d: ldi r25, 0b01101101
-	jmp testeportB
+	jmp testeportD
 display6d: ldi r25, 0b01111101
-	jmp testeportB
+	jmp testeportD
 display7d: ldi r25, 0b00000111
-	jmp testeportB
+	jmp testeportD
 display8d: ldi r25, 0b01111111
-	jmp testeportB
+	jmp testeportD
 display9d: ldi r25, 0b01101111
-	jmp testeportB
+	jmp testeportD
 
-testeportB:
+testeportD:
 	cpi r22, 0
 	breq display0b
 	cpi r22, 1
@@ -267,6 +253,6 @@ display9b: ldi r24, 0b01101111
 	jmp print
 
 print:
-	out PORTD, r25
-	out PORTB, r24
+	out PORTC, r25	; DEZENA
+	out PORTD, r24	; UNIDADE
 	jmp loop
