@@ -1,0 +1,75 @@
+#include <Keypad.h>
+
+const byte qtdLinhas = 4;
+const byte qtdColunas = 3;
+
+char matriz_teclas[qtdLinhas][qtdColunas] = {
+  {'1','2','3'},
+  {'4','5','6'},
+  {'7','8','9'},
+  {'*','0','#'}
+};
+
+byte PinosqtdLinhas[qtdLinhas] = {41, 43, 45, 47};
+byte PinosqtdColunas[qtdColunas] = {49, 51, 53};
+
+Keypad meuteclado = Keypad(makeKeymap(matriz_teclas), PinosqtdLinhas, PinosqtdColunas, qtdLinhas, qtdColunas);
+
+String numero1 = "";
+String numero2 = "";
+byte estado = 0; // 0 = digitando primeiro número, 1 = segundo número, 2 = soma pronta
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Digite o primeiro número. Pressione '*' para finalizar.");
+}
+
+void loop() {
+  char tecla = meuteclado.getKey();
+
+  if (tecla) {
+    if (tecla >= '0' && tecla <= '9') {
+      if (estado == 0) {
+        numero1 += tecla;
+        Serial.print("Número 1: ");
+        Serial.println(numero1);
+      } else if (estado == 1) {
+        numero2 += tecla;
+        Serial.print("Número 2: ");
+        Serial.println(numero2);
+      }
+    } else if (tecla == '*') {
+      if (estado == 0) {
+        estado = 1;
+        Serial.println(">> Primeiro número finalizado. Agora digite o segundo número.");
+      } else if (estado == 1) {
+        estado = 2;
+        somarNumeros();
+      }
+    } else if (tecla == '#') {
+      resetar();
+    }
+  }
+}
+
+void somarNumeros() {
+  long n1 = numero1.toInt();
+  long n2 = numero2.toInt();
+  long resultado = n1 + n2;
+
+  Serial.print("Soma de ");
+  Serial.print(n1);
+  Serial.print(" + ");
+  Serial.print(n2);
+  Serial.print(" = ");
+  Serial.println(resultado);
+  Serial.println("Pressione '#' para reiniciar.");
+}
+
+void resetar() {
+  numero1 = "";
+  numero2 = "";
+  estado = 0;
+  Serial.println("Calculadora reiniciada.");
+  Serial.println("Digite o primeiro número. Pressione '*' para finalizar.");
+}
