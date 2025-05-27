@@ -1,3 +1,5 @@
+
+
 int sensorPin = A0;   // select the input pin for the potentiometer
 int ledPin = 13;      // select the pin for the LED
 uint16_t sensorValue = 0;  // variable to store the value coming from the sensor
@@ -22,7 +24,9 @@ void loop() {
   
   //Serial.print("Vin : ");
   valor = (float)sensorValue / 1024;
+  valor = valor * 5;
   
+
   Serial.println("tensão Vout gnd:");
   Serial.println(valor);
 
